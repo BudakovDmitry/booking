@@ -1,10 +1,9 @@
 import Header from 'src/components/Header'
 import { NavLink } from 'react-router-dom'
 import { Routes } from 'src/router/routes'
-import { Typography, Box, Container, Stack, Button } from '@mui/material'
-import BookingForm from 'src/components/BookingForm'
+import { Typography, Box, Container, Button, Stack } from '@mui/material'
 
-const Home = () => {
+const About = () => {
   return (
     <>
       <Header>
@@ -29,14 +28,8 @@ const Home = () => {
       </Header>
       <Container maxWidth="xl">
         <Box sx={{ p: 3 }}>
-          <Box sx={{ mb: 2 }}>
-            <BookingForm />
-          </Box>
           <Typography variant="h3" sx={{ mb: 2 }}>
-            Travel with{' '}
-            <Typography variant="h3" component="span" sx={{ color: '#ed6c02' }}>
-              Booking
-            </Typography>
+            About
           </Typography>
           <Typography variant="body1">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
@@ -60,7 +53,30 @@ const Home = () => {
             ultricies eros blandit. Sed posuere sollicitudin mauris, lobortis
             euismod nisi. Phasellus vel diam nec lectus tempus molestie eget
             fermentum est. Fusce quis mauris nec felis aliquam luctus ut vel
-            ante.
+            ante. Quisque pharetra imperdiet turpis, ac ultricies nibh blandit
+            in. Etiam sed lorem aliquet, interdum justo ac, venenatis arcu.
+            Integer lorem augue, tristique eu quam ullamcorper, venenatis
+            sagittis velit. Aenean sit amet orci ultrices, dapibus odio
+            malesuada, tristique arcu. Quisque dictum nulla imperdiet risus
+            consequat imperdiet. Ut vitae leo sed augue lacinia porttitor a ac
+            justo. Integer pharetra a augue eu posuere. Integer pharetra turpis
+            enim, id accumsan sapien feugiat non. Morbi nec ornare diam, non
+            maximus ligula. Nulla arcu tellus, eleifend sed mollis id, tincidunt
+            a mi. Maecenas nisl libero, porta eget est a, porta imperdiet enim.
+            Nulla facilisi. Aenean ac sem a risus elementum placerat. Aliquam
+            quis tempus odio. Donec odio nibh, interdum porttitor tincidunt at,
+            mollis faucibus metus. Orci varius natoque penatibus et magnis dis
+            parturient montes, nascetur ridiculus mus. Fusce nec tristique quam.
+            Vivamus consectetur justo quis justo convallis laoreet nec id nisi.
+            Phasellus ut fermentum lorem. Phasellus odio massa, posuere egestas
+            mattis eu, faucibus ac nulla. Ut convallis arcu ac augue ornare
+            sagittis sed eget ligula. Sed iaculis tempor arcu. Integer non
+            bibendum tortor. Nulla sit amet dapibus elit, a pellentesque enim.
+            Phasellus sed mi condimentum, ullamcorper mauris et, dictum ligula.
+            Integer egestas risus ut dolor bibendum pharetra. Aenean ut odio id
+            metus gravida pharetra. Praesent sit amet scelerisque odio. Mauris
+            nec nisi quis metus volutpat tempor id quis ante. Cras est erat,
+            aliquet vitae urna ullamcorper, venenatis tincidunt odio.
           </Typography>
         </Box>
       </Container>
@@ -68,4 +84,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default About
