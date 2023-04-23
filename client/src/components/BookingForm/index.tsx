@@ -1,94 +1,115 @@
 import { Form, Field } from 'react-final-form'
 import { useState } from 'react'
+import * as Styled from 'src/components/BookingForm/styles'
 import {
-  Typography,
   Box,
-  Container,
   Button,
   Grid,
   Select,
   MenuItem,
-  Input,
   TextField,
+  InputLabel,
+  FormControl,
 } from '@mui/material'
 import { SelectChangeEvent } from '@mui/material/Select'
+import { useBookingForm } from 'src/components/BookingForm/useBookingForm'
 
 const BookingForm = () => {
-  const [age, setAge] = useState('0')
-  const onSubmit = async values => {
-    console.log(JSON.stringify(values))
-  }
+  const { validate, onSubmit } = useBookingForm()
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string)
-  }
   return (
     <Form
       onSubmit={onSubmit}
-      // validate={validate}
+      validate={validate}
       render={({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={3}>
               <Field name="destination">
                 {({ input, meta }) => (
-                  <Select
-                    sx={{ width: '200px' }}
-                    id="demo-simple-select"
-                    {...input}
-                    value={age}
-                  >
-                    <MenuItem disabled value={0}>
-                      Destination
-                    </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
-                  </Select>
+                  <Box sx={{ position: 'relative' }}>
+                    <FormControl fullWidth>
+                      <InputLabel id="destination_select_label">
+                        Destination
+                      </InputLabel>
+                      <Select
+                        sx={{ width: '100%' }}
+                        labelId="destination_select_label"
+                        id="destination_select"
+                        {...input}
+                        label="Destination"
+                      >
+                        <MenuItem value={10}>Ten</MenuItem>
+                        <MenuItem value={20}>Twenty</MenuItem>
+                        <MenuItem value={30}>Thirty</MenuItem>
+                      </Select>
+                      {meta.touched && meta.error && (
+                        <Styled.ErrorMessage>{meta.error}</Styled.ErrorMessage>
+                      )}
+                    </FormControl>
+                  </Box>
                 )}
               </Field>
             </Grid>
             <Grid item xs={3}>
               <Field name="checkIn">
                 {({ input, meta }) => (
-                  <TextField
-                    placeholder="Check In"
-                    variant="outlined"
-                    {...input}
-                  />
+                  <Box sx={{ position: 'relative' }}>
+                    <TextField
+                      sx={{ width: '100%' }}
+                      placeholder="Check In"
+                      variant="outlined"
+                      label="Check In"
+                      type="date"
+                      {...input}
+                    />
+                    {meta.touched && meta.error && (
+                      <Styled.ErrorMessage>{meta.error}</Styled.ErrorMessage>
+                    )}
+                  </Box>
                 )}
               </Field>
             </Grid>
             <Grid item xs={3}>
               <Field name="checkOut">
                 {({ input, meta }) => (
-                  <TextField
-                    placeholder="Check Out"
-                    variant="outlined"
-                    {...input}
-                  />
+                  <Box sx={{ position: 'relative' }}>
+                    <TextField
+                      sx={{ width: '100%' }}
+                      placeholder="Check Out"
+                      variant="outlined"
+                      type="date"
+                      label="Check Out"
+                      {...input}
+                    />
+                    {meta.touched && meta.error && (
+                      <Styled.ErrorMessage>{meta.error}</Styled.ErrorMessage>
+                    )}
+                  </Box>
                 )}
               </Field>
             </Grid>
             <Grid item xs={1}>
               <Field name="adults">
                 {({ input, meta }) => (
-                  <TextField
-                    placeholder="Adults"
-                    variant="outlined"
-                    {...input}
-                  />
+                  <Box sx={{ position: 'relative' }}>
+                    <TextField label="Adults" variant="outlined" {...input} />
+                    {meta.touched && meta.error && (
+                      <Styled.ErrorMessage>{meta.error}</Styled.ErrorMessage>
+                    )}
+                  </Box>
                 )}
               </Field>
             </Grid>
             <Grid item xs={1}>
               <Field name="children">
                 {({ input, meta }) => (
-                  <TextField
-                    placeholder="Children"
-                    variant="outlined"
-                    {...input}
-                  />
+                  <Box sx={{ position: 'relative' }}>
+                    <TextField label="Children" variant="outlined" {...input} />
+                    {meta.touched && meta.error && (
+                      <Styled.ErrorMessage>{meta.error}</Styled.ErrorMessage>
+                    )}
+                  </Box>
                 )}
               </Field>
             </Grid>
