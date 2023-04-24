@@ -2,7 +2,7 @@ import Header from 'src/components/Header'
 import { NavLink } from 'react-router-dom'
 import { Routes } from 'src/router/routes'
 import { Typography, Box, Container, Stack, Button } from '@mui/material'
-import HotelList from 'src/components/HotelList'
+import HotelsList from 'src/components/HotelsList'
 
 const Hotels = () => {
   return (
@@ -32,7 +32,7 @@ const Hotels = () => {
           <Typography variant="h3" sx={{ mb: 2 }}>
             Hotels
           </Typography>
-          <HotelList />
+          <HotelsList />
         </Box>
       </Container>
     </>

@@ -13,7 +13,7 @@ import {
 } from '@mui/material'
 import { useBookingForm } from 'src/components/BookingForm/useBookingForm'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
-import { DestinationType } from 'src/types'
+import { DestinationType, FormValuesType } from 'src/types'
 import Loader from 'src/components/Loader'
 
 const initialValues = {
@@ -21,15 +21,19 @@ const initialValues = {
   checkOut: dayjs(),
 }
 
-const BookingForm = () => {
-  const { validate, onSubmit, allDestinations } = useBookingForm()
+type BookingFormProps = {
+  onSubmitForm: (values: FormValuesType) => Promise<void>
+}
+
+const BookingForm = ({ onSubmitForm }: BookingFormProps) => {
+  const { validate, allDestinations } = useBookingForm()
 
   if (!allDestinations || !allDestinations.length)
     return <Loader width="50" height="50" />
 
   return (
     <Form
-      onSubmit={onSubmit}
+      onSubmit={onSubmitForm}
       validate={validate}
       initialValues={initialValues}
       render={({ handleSubmit }) => (
@@ -50,17 +54,14 @@ const BookingForm = () => {
                         {...input}
                         label="Destination"
                       >
-                        {allDestinations &&
-                          allDestinations.map(
-                            (destination: DestinationType) => (
-                              <MenuItem
-                                key={destination.id}
-                                value={destination.value}
-                              >
-                                {destination.label}
-                              </MenuItem>
-                            ),
-                          )}
+                        {allDestinations.map((destination: DestinationType) => (
+                          <MenuItem
+                            key={destination.id}
+                            value={destination.label}
+                          >
+                            {destination.label}
+                          </MenuItem>
+                        ))}
                       </Select>
                       {meta.touched && meta.error && (
                         <Styled.ErrorMessage>{meta.error}</Styled.ErrorMessage>
@@ -74,14 +75,6 @@ const BookingForm = () => {
               <Field name="checkIn">
                 {({ input, meta }) => (
                   <Box sx={{ position: 'relative' }}>
-                    {/* <TextField
-                      sx={{ width: '100%' }}
-                      placeholder="Check In"
-                      variant="outlined"
-                      label="Check In"
-                      type="date"
-                      {...input}
-                    /> */}
                     <DatePicker
                       sx={{ width: '100%' }}
                       label="Check In"
@@ -97,30 +90,19 @@ const BookingForm = () => {
             </Grid>
             <Grid item xs={3}>
               <Field name="checkOut">
-                {({ input, meta }) => {
-                  console.log(input)
-                  return (
-                    <Box sx={{ position: 'relative' }}>
-                      {/* <TextField
+                {({ input, meta }) => (
+                  <Box sx={{ position: 'relative' }}>
+                    <DatePicker
                       sx={{ width: '100%' }}
-                      placeholder="Check Out"
-                      variant="outlined"
-                      type="date"
                       label="Check Out"
+                      disablePast
                       {...input}
-                    /> */}
-                      <DatePicker
-                        sx={{ width: '100%' }}
-                        label="Check Out"
-                        disablePast
-                        {...input}
-                      />
-                      {meta.touched && meta.error && (
-                        <Styled.ErrorMessage>{meta.error}</Styled.ErrorMessage>
-                      )}
-                    </Box>
-                  )
-                }}
+                    />
+                    {meta.touched && meta.error && (
+                      <Styled.ErrorMessage>{meta.error}</Styled.ErrorMessage>
+                    )}
+                  </Box>
+                )}
               </Field>
             </Grid>
             <Grid item xs={1}>

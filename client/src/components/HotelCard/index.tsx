@@ -9,7 +9,7 @@ type HotelCardProps = {
   name: string
   address: string
   city: string
-  state: string
+  state: string | null
 }
 
 const HotelCard = ({
@@ -27,19 +27,30 @@ const HotelCard = ({
           image="/static/images/cards/contemplative-reptile.jpg"
           alt="green iguana"
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+        <CardContent sx={{ minHeight: '200px' }}>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            sx={{ minHeight: '80px' }}
+          >
             {name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            address: {address}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            city: {city}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            state: {state}
-          </Typography>
+          {address && (
+            <Typography variant="body2" color="text.secondary">
+              address: {address}
+            </Typography>
+          )}
+          {city && (
+            <Typography variant="body2" color="text.secondary">
+              city: {city}
+            </Typography>
+          )}
+          {state && (
+            <Typography variant="body2" color="text.secondary">
+              state: {state}
+            </Typography>
+          )}
         </CardContent>
       </CardActionArea>
     </Card>

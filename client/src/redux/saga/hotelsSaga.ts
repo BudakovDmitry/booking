@@ -12,7 +12,7 @@ function* fetchHotelsWorker() {
     try {
         const response = yield call(fetchHotelsFromApi)
 
-        yield put(setHotels(response))
+        yield put(setHotels(response.data))
     } catch (e: any) {
         yield put(hotelsFail(e.message))
     }

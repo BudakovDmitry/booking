@@ -3,8 +3,11 @@ import { NavLink } from 'react-router-dom'
 import { Routes } from 'src/router/routes'
 import { Typography, Box, Container, Stack, Button } from '@mui/material'
 import BookingForm from 'src/components/BookingForm'
+import { useHome } from 'src/pages/Home/useHome'
 
 const Home = () => {
+  const { onSubmitForm } = useHome()
+
   return (
     <>
       <Header>
@@ -30,7 +33,7 @@ const Home = () => {
       <Container maxWidth="xl">
         <Box sx={{ p: 3 }}>
           <Box sx={{ mb: 2 }}>
-            <BookingForm />
+            <BookingForm onSubmitForm={onSubmitForm} />
           </Box>
           <Typography variant="h3" sx={{ mb: 2 }}>
             Travel with{' '}

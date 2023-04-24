@@ -9,7 +9,7 @@ export const setHotels = (hotels: HotelType[]) => {
 
 export const fetchHotels = () => {
   return {
-    type: HotelsActionsType.FETCH_HOTELS,
+    type: HotelsActionsType.FETCH_HOTELS
   }
 }
 

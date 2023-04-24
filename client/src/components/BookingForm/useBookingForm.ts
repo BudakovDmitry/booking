@@ -8,21 +8,12 @@ import { DestinationType, RootStateType } from 'src/types'
 
 export const useBookingForm = () => {
   const { dispatch } = usePage();
-  const allDestinations: DestinationType[] = useSelector((state: RootStateType) => {
-    console.log(state.destinationsReducer)
-    return state.destinationsReducer.destinations
-  })
-  
-
-  console.log(allDestinations)
+  const allDestinations: DestinationType[] = useSelector((state: RootStateType) => state.destinationsReducer.destinations)
 
   useEffect(() => {
     dispatch(fetchDestinations())
   }, [])
 
-  const onSubmit = async (values: FormValuesType) => {
-    console.log(JSON.stringify(values))
-  }
 
   const validate = (values: FormValuesType):FormErrorsType => {
     const errors = {} as FormErrorsType
@@ -35,7 +26,6 @@ export const useBookingForm = () => {
 
   return {
       validate,
-      onSubmit,
       allDestinations
   }
 }
