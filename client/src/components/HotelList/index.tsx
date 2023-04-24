@@ -11,7 +11,7 @@ const HotelList = () => {
       >
         {Array.from(Array(6)).map((_, index) => (
           <Grid item xs={2} sm={4} md={4} key={index}>
-            <HotelCard />
+            <HotelCard name="test" address="test" city="test" state="test" />
           </Grid>
         ))}
       </Grid>

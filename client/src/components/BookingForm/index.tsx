@@ -13,6 +13,8 @@ import {
 } from '@mui/material'
 import { useBookingForm } from 'src/components/BookingForm/useBookingForm'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import { DestinationType } from 'src/types'
+import Loader from 'src/components/Loader'
 
 const initialValues = {
   checkIn: dayjs(),
@@ -20,7 +22,10 @@ const initialValues = {
 }
 
 const BookingForm = () => {
-  const { validate, onSubmit } = useBookingForm()
+  const { validate, onSubmit, allDestinations } = useBookingForm()
+
+  if (!allDestinations || !allDestinations.length)
+    return <Loader width="50" height="50" />
 
   return (
     <Form
@@ -45,9 +50,17 @@ const BookingForm = () => {
                         {...input}
                         label="Destination"
                       >
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        {allDestinations &&
+                          allDestinations.map(
+                            (destination: DestinationType) => (
+                              <MenuItem
+                                key={destination.id}
+                                value={destination.value}
+                              >
+                                {destination.label}
+                              </MenuItem>
+                            ),
+                          )}
                       </Select>
                       {meta.touched && meta.error && (
                         <Styled.ErrorMessage>{meta.error}</Styled.ErrorMessage>

@@ -2,7 +2,11 @@ import * as Styled from 'src/components/Header/styles'
 
 const Logo = require('src/images/logo.png')
 
-const Header = ({ children }) => {
+type HeaderProps = {
+  children: JSX.Element
+}
+
+const Header = ({ children }: HeaderProps) => {
   return (
     <Styled.HeaderContainer>
       <Styled.HeaderLogoContainer>

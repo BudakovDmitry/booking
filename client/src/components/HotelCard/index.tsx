@@ -5,7 +5,19 @@ import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 import { CardActionArea } from '@mui/material'
 
-const HotelCard = () => {
+type HotelCardProps = {
+  name: string
+  address: string
+  city: string
+  state: string
+}
+
+const HotelCard = ({
+  name = '',
+  address = '',
+  city = '',
+  state = '',
+}: HotelCardProps) => {
   return (
     <Card>
       <CardActionArea>
@@ -17,16 +29,16 @@ const HotelCard = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
+            {name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            address: {'Semaforna'}
+            address: {address}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            city: {'Dnipro'}
+            city: {city}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            state: {'Ukraine'}
+            state: {state}
           </Typography>
         </CardContent>
       </CardActionArea>
