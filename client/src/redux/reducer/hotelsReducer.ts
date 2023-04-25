@@ -9,22 +9,28 @@ const initialState: HotelsStateType = {
   
 const hotelsReducer = (state: HotelsStateType = initialState, action: HotelsAction) => {
   switch (action.type) {
-    case HotelsActionsType.FETCH_HOTELS:
+    case HotelsActionsType.HOTELS_FETCH_REQUESTED:
       return {
         ...state,
         pending: true,
       };
-    case HotelsActionsType.SET_HOTELS:
-      return {
-        ...state, 
-        hotels: action.payload
-      }
-    case HotelsActionsType.HOTELS_FAIL:
+    case HotelsActionsType.HOTELS_FETCH_SUCCEEDED:
       return {
         ...state,
         pending: false,
-        hotels: [],
-        error: action.payload,
+        hotels: action.payload,
+        error: null
+      };
+    case HotelsActionsType.HOTELS_FETCH_FAILED:
+      return {
+        ...state,
+        pending: false,
+        error: action.payload
+      };
+    case HotelsActionsType.HOTELS_SET:
+      return {
+        ...state,
+        hotels: action.payload
       };
     default:
       return state

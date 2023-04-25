@@ -1,24 +1,33 @@
 import { usePage } from 'src/hooks/usePage'
-import { useEffect } from 'react'
 import { useSelector } from "react-redux";
-import { HotelType, RootStateType, FormValuesType } from 'src/types'
-import { fetchHotels } from 'src/redux/actions/hotelsActions';
+import { RootStateType, FormValuesType } from 'src/types'
+import { getHotelsRequested } from 'src/redux/actions/hotelsActions';
 import { Routes } from 'src/router/routes';
+import { useEffect } from 'react'
 
 export const useHome = () => {
     const { dispatch, navigate } = usePage();
-    const allHotels: HotelType[] = useSelector((state: RootStateType) => state.hotelsReducer.hotels)
+    const { hotels, pending, error } = useSelector((state: RootStateType) => state.hotelsReducer)
 
-    console.log('allHotels', allHotels)
+    console.log('pending', pending)
+    console.log('error', error)
+    console.log('allHotels', hotels)
 
-    const onSubmitForm = async (values: FormValuesType) => {
-        dispatch(fetchHotels())
-        console.log(values)
-        console.log(JSON.stringify(values))
+    const onSubmitForm = async (values: FormValuesType): Promise<void> => {
+        dispatch(getHotelsRequested(values.destination))
     }
+
+    useEffect(() => {
+        if(hotels.length) {
+            navigate(`${Routes.HOTELS}`)
+        }
+    }, [hotels])
 
 
     return {
-        onSubmitForm
+        onSubmitForm,
+        hotels,
+        pending,
+        error
     }
 }

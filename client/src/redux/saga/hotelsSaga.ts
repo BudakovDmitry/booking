@@ -1,24 +1,21 @@
 import { put, takeEvery, call} from 'redux-saga/effects'
-import { API } from 'src/constants'
 import { Endpoints } from 'src/utils/endpoints'
-import { hotelsFail, setHotels } from 'src/redux/actions/hotelsActions'
-import { HotelsActionsType } from 'src/types'
+import { getHotelsSucceeded, getHotelsFailed } from 'src/redux/actions/hotelsActions'
+import { HotelsActionsType, HotelsAction } from 'src/types'
+import { get } from 'src/api'
 
-const axios = require('axios').default;
-
-const fetchHotelsFromApi = () => axios.get(`${API}${Endpoints.HOTELS}`)
-
-function* fetchHotelsWorker() {
+function* fetchHotelsWorker(action: HotelsAction) {
+    console.log('action worker', action)
     try {
-        const response = yield call(fetchHotelsFromApi)
-
-        yield put(setHotels(response.data))
+        const response = yield call(get, Endpoints.HOTELS)
+        console.log('response', response)
+        yield put(getHotelsSucceeded(response.data))
     } catch (e: any) {
-        yield put(hotelsFail(e.message))
+        yield put(getHotelsFailed(e.message))
     }
 
 }
 
 export function* hotelsWatcher() {
-    yield takeEvery(HotelsActionsType.FETCH_HOTELS, fetchHotelsWorker)
+    yield takeEvery(HotelsActionsType.HOTELS_FETCH_REQUESTED, fetchHotelsWorker)
 }

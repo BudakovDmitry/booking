@@ -39,7 +39,7 @@ export enum FormErrors {
 }
 
 export type FormValuesType = {
-    destination?: string
+    destination: string
     checkIn?: string
     checkOut?: string
     adults?: string
@@ -71,23 +71,30 @@ export type FailDestinationsAction = {
 export type DestinationsAction = FetchDestinationsAction | SetDestinationsAction | FailDestinationsAction
 
 export enum HotelsActionsType {
-    SET_HOTELS = 'SET_HOTELS',
-    FETCH_HOTELS = 'FETCH_HOTELS',
-    HOTELS_FAIL = 'HOTELS_FAIL'
+    HOTELS_FETCH_REQUESTED = 'HOTELS_FETCH_REQUESTED',
+    HOTELS_FETCH_SUCCEEDED = 'HOTELS_FETCH_SUCCEEDED',
+    HOTELS_FETCH_FAILED = 'HOTELS_FETCH_FAILED',
+    HOTELS_SET = 'HOTELS_SET'
 }
 
-export type FetchHotelsAction = {
-    type: HotelsActionsType.FETCH_HOTELS
-}
-
-export type SetHotelsAction = {
-    type: HotelsActionsType.SET_HOTELS
-    payload: HotelType[]
-}
-
-export type FailHotelsAction = {
-    type: HotelsActionsType.HOTELS_FAIL
+export type GetHotelsRequested = {
+    type: HotelsActionsType.HOTELS_FETCH_REQUESTED
     payload: string
 }
 
-export type HotelsAction = FetchHotelsAction | SetHotelsAction | FailHotelsAction
+export type GetHotelsSucceeded = {
+    type: HotelsActionsType.HOTELS_FETCH_SUCCEEDED
+    payload: HotelType[]
+}
+
+export type GetHotelsFailed = {
+    type: HotelsActionsType.HOTELS_FETCH_FAILED
+    payload: string
+}
+
+export type SetHotels = {
+    type: HotelsActionsType.HOTELS_SET
+    payload: string
+}
+
+export type HotelsAction = GetHotelsRequested | GetHotelsSucceeded | GetHotelsFailed | SetHotels
