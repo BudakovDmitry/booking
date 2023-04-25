@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material'
+import { Grid } from '@mui/material'
 import { useHotelsList } from 'src/components/HotelsList/useHotelsList'
 import HotelCard from 'src/components/HotelCard'
 import Loader from 'src/components/Loader'

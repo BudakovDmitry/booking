@@ -5,7 +5,7 @@ import { setHotels } from 'src/redux/actions/hotelsActions'
 export const useHotels = () => {
     const { dispatch } = usePage();
     
-    const clearHotels = () => {
+    const clearHotels = (): void => {
         dispatch(setHotels([] as HotelType[]))
     }
     

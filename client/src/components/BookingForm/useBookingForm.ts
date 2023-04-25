@@ -8,7 +8,7 @@ import { DestinationType, RootStateType } from 'src/types'
 
 export const useBookingForm = () => {
   const { dispatch } = usePage();
-  const allDestinations: DestinationType[] = useSelector((state: RootStateType) => state.destinationsReducer.destinations)
+  const allDestinations: DestinationType[] = useSelector<RootStateType, DestinationType[]>((state: RootStateType) => state.destinationsReducer.destinations)
 
   useEffect(() => {
     dispatch(fetchDestinations())
