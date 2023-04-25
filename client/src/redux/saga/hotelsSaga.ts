@@ -5,7 +5,6 @@ import { HotelsActionsType, HotelsAction } from 'src/types'
 import { get } from 'src/api'
 
 function* fetchHotelsWorker(action: HotelsAction) {
-    console.log('action worker', action)
     try {
         const response = yield call(get, Endpoints.HOTELS)
         console.log('response', response)
@@ -13,7 +12,6 @@ function* fetchHotelsWorker(action: HotelsAction) {
     } catch (e: any) {
         yield put(getHotelsFailed(e.message))
     }
-
 }
 
 export function* hotelsWatcher() {

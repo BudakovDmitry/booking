@@ -32,7 +32,7 @@ const Home = () => {
       </Header>
       <Container maxWidth="xl">
         <Box sx={{ p: 3 }}>
-          <Box sx={{ mb: 2 }}>
+          <Box sx={{ mb: 4 }}>
             <BookingForm onSubmitForm={onSubmitForm} />
           </Box>
           <Typography variant="h3" sx={{ mb: 2 }}>

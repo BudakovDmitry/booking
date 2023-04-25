@@ -1,21 +1,21 @@
 import { DestinationsActionsType, DestinationType } from 'src/types'
 
-export const setDestinations = (destinations: DestinationType[]) => {
-    return {
-        type: DestinationsActionsType.SET_DESTINATIONS,
-        payload: destinations,
-      }
-}
-
-export const fetchDestinations = () => {
-    return {
-        type: DestinationsActionsType.FETCH_DESTINATIONS,
-      }
-}
-
-export const destinationsFail = (payload: string) => {
+export const getDestinationsRequested = () => {
   return {
-    type: DestinationsActionsType.DESTINATIONS_FAIL,
-    payload,
+    type: DestinationsActionsType.DESTINATIONS_FETCH_REQUESTED,
   }
-};
+}
+
+export const getDestinationsSucceeded = (destinations: DestinationType[]) => {
+  return {
+    type: DestinationsActionsType.DESTINATIONS_FETCH_SUCCEEDED,
+    payload: destinations,
+  }
+}
+
+export const getDestinationsFailed = (error: string) => {
+  return {
+    type: DestinationsActionsType.DESTINATIONS_FETCH_FAILED,
+    payload: error,
+  }
+}

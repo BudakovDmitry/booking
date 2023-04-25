@@ -49,26 +49,26 @@ export type FormValuesType = {
 export type FormErrorsType = FormValuesType
 
 export enum DestinationsActionsType {
-    SET_DESTINATIONS = 'SET_DESTINATIONS',
-    FETCH_DESTINATIONS = 'FETCH_DESTINATIONS',
-    DESTINATIONS_FAIL = 'DESTINATIONS_FAIL'
+    DESTINATIONS_FETCH_REQUESTED = 'DESTINATIONS_FETCH_REQUESTED',
+    DESTINATIONS_FETCH_SUCCEEDED = 'DESTINATIONS_FETCH_SUCCEEDED',
+    DESTINATIONS_FETCH_FAILED = 'DESTINATIONS_FETCH_FAILED',
 }
 
-export type FetchDestinationsAction = {
-    type: DestinationsActionsType.FETCH_DESTINATIONS
+export type GetDestinationsRequested = {
+    type: DestinationsActionsType.DESTINATIONS_FETCH_REQUESTED
 }
 
-export type SetDestinationsAction = {
-    type: DestinationsActionsType.SET_DESTINATIONS
+export type GetDestinationsSucceeded = {
+    type: DestinationsActionsType.DESTINATIONS_FETCH_SUCCEEDED
     payload: DestinationType[]
 }
 
-export type FailDestinationsAction = {
-    type: DestinationsActionsType.DESTINATIONS_FAIL
+export type GetDestnationsFailed = {
+    type: DestinationsActionsType.DESTINATIONS_FETCH_FAILED
     payload: string
 }
 
-export type DestinationsAction = FetchDestinationsAction | SetDestinationsAction | FailDestinationsAction
+export type DestinationsAction = GetDestinationsRequested | GetDestinationsSucceeded | GetDestnationsFailed
 
 export enum HotelsActionsType {
     HOTELS_FETCH_REQUESTED = 'HOTELS_FETCH_REQUESTED',

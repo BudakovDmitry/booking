@@ -1,7 +1,7 @@
 import { FormErrors, FormValuesType, FormErrorsType } from 'src/types'
 import { usePage } from 'src/hooks/usePage'
 import { useEffect } from 'react';
-import { fetchDestinations } from 'src/redux/actions/destinationsActions';
+import { getDestinationsRequested } from 'src/redux/actions/destinationsActions';
 import { useSelector } from "react-redux";
 import { DestinationType, RootStateType } from 'src/types'
 
@@ -11,7 +11,7 @@ export const useBookingForm = () => {
   const allDestinations: DestinationType[] = useSelector<RootStateType, DestinationType[]>((state: RootStateType) => state.destinationsReducer.destinations)
 
   useEffect(() => {
-    dispatch(fetchDestinations())
+    dispatch(getDestinationsRequested())
   }, [])
 
 

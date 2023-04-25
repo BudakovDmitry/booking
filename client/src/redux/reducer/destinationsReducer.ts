@@ -8,23 +8,22 @@ const initialState: DestinationsStateType = {
   
 const destinationsReducer = (state: DestinationsStateType = initialState, action: DestinationsAction) => {
   switch (action.type) {
-    case DestinationsActionsType.FETCH_DESTINATIONS:
+    case DestinationsActionsType.DESTINATIONS_FETCH_REQUESTED:
       return {
         ...state,
         pending: true,
       };
-    case DestinationsActionsType.SET_DESTINATIONS:
+    case DestinationsActionsType.DESTINATIONS_FETCH_SUCCEEDED:
       return {
         ...state,
         pending: false,
         destinations: action.payload,
         error: null
       }
-    case DestinationsActionsType.DESTINATIONS_FAIL:
+    case DestinationsActionsType.DESTINATIONS_FETCH_FAILED:
       return {
         ...state,
         pending: false,
-        destinations: [],
         error: action.payload,
       };
     default:

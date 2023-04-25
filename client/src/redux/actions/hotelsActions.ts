@@ -1,7 +1,5 @@
 import { HotelsActionsType, HotelType } from 'src/types'
 
-
-
 export const getHotelsRequested = (destination: string) => {
   return {
     type: HotelsActionsType.HOTELS_FETCH_REQUESTED,
