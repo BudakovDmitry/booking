@@ -5,6 +5,8 @@ import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 import { CardActionArea } from '@mui/material'
 
+const HotelImageDefault = require('src/images/hotel-default.jpg')
+
 type HotelCardProps = {
   name: string
   address: string
@@ -24,7 +26,7 @@ const HotelCard = ({
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={HotelImageDefault}
           alt="green iguana"
         />
         <CardContent sx={{ minHeight: '200px' }}>

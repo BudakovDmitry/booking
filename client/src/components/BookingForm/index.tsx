@@ -45,14 +45,14 @@ const BookingForm = ({ onSubmitForm }: BookingFormProps) => {
                   <Box sx={{ position: 'relative' }}>
                     <FormControl fullWidth>
                       <InputLabel id="destination_select_label">
-                        Destination
+                        Destination*
                       </InputLabel>
                       <Select
                         sx={{ width: '100%' }}
                         labelId="destination_select_label"
                         id="destination_select"
                         {...input}
-                        label="Destination"
+                        label="Destination*"
                       >
                         {allDestinations.map((destination: DestinationType) => (
                           <MenuItem
