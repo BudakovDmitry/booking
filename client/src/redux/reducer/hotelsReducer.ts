@@ -1,12 +1,11 @@
-import { HotelsActionsType, HotelsStateType, HotelsAction } from 'src/types'
-
+import { HotelsActionsType, HotelsStateType, HotelsAction } from 'src/types';
 
 const initialState: HotelsStateType = {
   hotels: [],
   pending: false,
   error: null,
-}
-  
+};
+
 const hotelsReducer = (state: HotelsStateType = initialState, action: HotelsAction) => {
   switch (action.type) {
     case HotelsActionsType.HOTELS_FETCH_REQUESTED:
@@ -19,22 +18,22 @@ const hotelsReducer = (state: HotelsStateType = initialState, action: HotelsActi
         ...state,
         pending: false,
         hotels: action.payload,
-        error: null
+        error: null,
       };
     case HotelsActionsType.HOTELS_FETCH_FAILED:
       return {
         ...state,
         pending: false,
-        error: action.payload
+        error: action.payload,
       };
     case HotelsActionsType.HOTELS_SET:
       return {
         ...state,
-        hotels: action.payload
+        hotels: action.payload,
       };
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default hotelsReducer
+export default hotelsReducer;

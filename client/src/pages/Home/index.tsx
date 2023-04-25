@@ -1,12 +1,18 @@
-import Header from 'src/components/Header'
-import { NavLink } from 'react-router-dom'
-import { Routes } from 'src/router/routes'
-import { Typography, Box, Container, Stack, Button } from '@mui/material'
-import BookingForm from 'src/components/BookingForm'
-import { useHome } from 'src/pages/Home/useHome'
+import Header from 'src/components/Header';
+import { NavLink } from 'react-router-dom';
+import { Routes } from 'src/router/routes';
+import {
+  Typography,
+  Box,
+  Container,
+  Stack,
+  Button,
+} from '@mui/material';
+import BookingForm from 'src/components/BookingForm';
+import { useHome } from 'src/pages/Home/useHome';
 
 const Home = () => {
-  const { onSubmitForm } = useHome()
+  const { onSubmitForm } = useHome();
 
   return (
     <>
@@ -36,7 +42,8 @@ const Home = () => {
             <BookingForm onSubmitForm={onSubmitForm} />
           </Box>
           <Typography variant="h3" sx={{ mb: 2 }}>
-            Travel with{' '}
+            Travel with
+            {' '}
             <Typography variant="h3" component="span" sx={{ color: '#ed6c02' }}>
               Booking
             </Typography>
@@ -68,7 +75,7 @@ const Home = () => {
         </Box>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

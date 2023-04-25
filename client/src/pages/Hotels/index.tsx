@@ -1,12 +1,14 @@
-import Header from 'src/components/Header'
-import { NavLink } from 'react-router-dom'
-import { Routes } from 'src/router/routes'
-import { Typography, Box, Container, Stack, Button } from '@mui/material'
-import HotelsList from 'src/components/HotelsList'
-import { useHotels } from 'src/pages/Hotels/useHotels'
+import Header from 'src/components/Header';
+import { NavLink } from 'react-router-dom';
+import { Routes } from 'src/router/routes';
+import {
+  Typography, Box, Container, Stack, Button,
+} from '@mui/material';
+import HotelsList from 'src/components/HotelsList';
+import { useHotels } from 'src/pages/Hotels/useHotels';
 
 const Hotels = () => {
-  const { clearHotels } = useHotels()
+  const { clearHotels } = useHotels();
 
   return (
     <>
@@ -41,7 +43,7 @@ const Hotels = () => {
         </Box>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default Hotels
+export default Hotels;

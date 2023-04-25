@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
     min-height: 50px;
@@ -7,22 +7,21 @@ export const HeaderContainer = styled.header`
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-`
-
+`;
 
 export const HeaderLogoContainer = styled.div`
     display: flex;
     align-items: center;
-`
+`;
 
 export const HeaderLogo = styled.img`
     max-width: 50px;
     display: block;
     margin-right: 20px;
-`
+`;
 
 export const HeaderLogoText = styled.h2`
     font-weight: 700;
     font-size: 38px;
     color: #ed6c02;
-`
+`;

@@ -1,6 +1,6 @@
-import { Form, Field } from 'react-final-form'
-import * as Styled from 'src/components/BookingForm/styles'
-import dayjs from 'dayjs'
+import { Form, Field } from 'react-final-form';
+import * as Styled from 'src/components/BookingForm/styles';
+import dayjs from 'dayjs';
 import {
   Box,
   Button,
@@ -10,26 +10,27 @@ import {
   TextField,
   InputLabel,
   FormControl,
-} from '@mui/material'
-import { useBookingForm } from 'src/components/BookingForm/useBookingForm'
-import { DatePicker } from '@mui/x-date-pickers/DatePicker'
-import { DestinationType, FormValuesType } from 'src/types'
-import Loader from 'src/components/Loader'
+} from '@mui/material';
+import { useBookingForm } from 'src/components/BookingForm/useBookingForm';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { DestinationType, FormValuesType } from 'src/types';
+import Loader from 'src/components/Loader';
 
 const initialValues = {
   checkIn: dayjs(),
   checkOut: dayjs(),
-}
+};
 
 type BookingFormProps = {
-  onSubmitForm: (values: FormValuesType) => Promise<void>
-}
+  onSubmitForm: (values: FormValuesType) => Promise<void>;
+};
 
 const BookingForm = ({ onSubmitForm }: BookingFormProps) => {
-  const { validate, allDestinations } = useBookingForm()
+  const { validate, allDestinations } = useBookingForm();
 
-  if (!allDestinations || !allDestinations.length)
-    return <Loader width="50" height="50" />
+  if (!allDestinations || !allDestinations.length) {
+    return <Loader width="50" height="50" />;
+  }
 
   return (
     <Form
@@ -44,9 +45,7 @@ const BookingForm = ({ onSubmitForm }: BookingFormProps) => {
                 {({ input, meta }) => (
                   <Box sx={{ position: 'relative' }}>
                     <FormControl fullWidth>
-                      <InputLabel id="destination_select_label">
-                        Destination*
-                      </InputLabel>
+                      <InputLabel id="destination_select_label">Destination*</InputLabel>
                       <Select
                         sx={{ width: '100%' }}
                         labelId="destination_select_label"
@@ -55,10 +54,7 @@ const BookingForm = ({ onSubmitForm }: BookingFormProps) => {
                         label="Destination*"
                       >
                         {allDestinations.map((destination: DestinationType) => (
-                          <MenuItem
-                            key={destination.id}
-                            value={destination.label}
-                          >
+                          <MenuItem key={destination.id} value={destination.label}>
                             {destination.label}
                           </MenuItem>
                         ))}
@@ -75,12 +71,7 @@ const BookingForm = ({ onSubmitForm }: BookingFormProps) => {
               <Field name="checkIn">
                 {({ input, meta }) => (
                   <Box sx={{ position: 'relative' }}>
-                    <DatePicker
-                      sx={{ width: '100%' }}
-                      label="Check In"
-                      disablePast
-                      {...input}
-                    />
+                    <DatePicker sx={{ width: '100%' }} label="Check In" disablePast {...input} />
                     {meta.touched && meta.error && (
                       <Styled.ErrorMessage>{meta.error}</Styled.ErrorMessage>
                     )}
@@ -92,12 +83,7 @@ const BookingForm = ({ onSubmitForm }: BookingFormProps) => {
               <Field name="checkOut">
                 {({ input, meta }) => (
                   <Box sx={{ position: 'relative' }}>
-                    <DatePicker
-                      sx={{ width: '100%' }}
-                      label="Check Out"
-                      disablePast
-                      {...input}
-                    />
+                    <DatePicker sx={{ width: '100%' }} label="Check Out" disablePast {...input} />
                     {meta.touched && meta.error && (
                       <Styled.ErrorMessage>{meta.error}</Styled.ErrorMessage>
                     )}
@@ -144,7 +130,7 @@ const BookingForm = ({ onSubmitForm }: BookingFormProps) => {
         </form>
       )}
     />
-  )
-}
+  );
+};
 
-export default BookingForm
+export default BookingForm;

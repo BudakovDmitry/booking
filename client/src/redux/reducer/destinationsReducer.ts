@@ -1,12 +1,15 @@
-import { DestinationsActionsType, DestinationsStateType, DestinationsAction } from 'src/types'
+import { DestinationsActionsType, DestinationsStateType, DestinationsAction } from 'src/types';
 
 const initialState: DestinationsStateType = {
   destinations: [],
   pending: false,
   error: null,
-}
-  
-const destinationsReducer = (state: DestinationsStateType = initialState, action: DestinationsAction) => {
+};
+
+const destinationsReducer = (
+  state: DestinationsStateType = initialState,
+  action: DestinationsAction,
+) => {
   switch (action.type) {
     case DestinationsActionsType.DESTINATIONS_FETCH_REQUESTED:
       return {
@@ -18,8 +21,8 @@ const destinationsReducer = (state: DestinationsStateType = initialState, action
         ...state,
         pending: false,
         destinations: action.payload,
-        error: null
-      }
+        error: null,
+      };
     case DestinationsActionsType.DESTINATIONS_FETCH_FAILED:
       return {
         ...state,
@@ -27,8 +30,8 @@ const destinationsReducer = (state: DestinationsStateType = initialState, action
         error: action.payload,
       };
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default destinationsReducer
+export default destinationsReducer;
