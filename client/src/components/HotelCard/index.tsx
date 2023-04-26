@@ -7,19 +7,23 @@ import { CardActionArea } from '@mui/material';
 const HotelImageDefault = require('src/images/hotel-default.jpg');
 
 type HotelCardProps = {
+  id: number
   name: string;
   address: string;
   city: string;
   state: string | null;
+  openHotelDetails: (id: number) => void
 };
 
 const HotelCard = ({
+  id = 0,
   name = '',
   address = '',
   city = '',
   state = '',
-}: HotelCardProps) => (
-  <Card>
+  openHotelDetails = () => {},
+}: HotelCardProps): JSX.Element => (
+  <Card onClick={() => openHotelDetails(id)}>
     <CardActionArea>
       <CardMedia component="img" height="140" image={HotelImageDefault} alt="green iguana" />
       <CardContent sx={{ minHeight: '200px' }}>

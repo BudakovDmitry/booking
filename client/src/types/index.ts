@@ -104,3 +104,14 @@ export type HotelsAction =
     GetHotelsSucceeded |
     GetHotelsFailed |
     SetHotels;
+
+export type CrumbType = {
+  label: string;
+  path: string
+};
+
+export enum CrumbName {
+  HOME = 'Home',
+  HOTELS = 'Hotels',
+  ABOUT = 'About',
+}

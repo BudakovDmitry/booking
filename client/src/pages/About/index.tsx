@@ -8,6 +8,8 @@ import {
   Button,
   Stack,
 } from '@mui/material';
+import Breadcrumbs from 'src/components/Breadcrumbs';
+import { CrumbName } from 'src/types';
 
 const About = () => (
   <>
@@ -22,6 +24,15 @@ const About = () => (
       </Stack>
     </Header>
     <Container maxWidth="xl">
+      <Breadcrumbs
+        crumbs={[
+          { label: CrumbName.HOME, path: Routes.HOME },
+          {
+            label: CrumbName.ABOUT,
+            path: Routes.ABOUT,
+          },
+        ]}
+      />
       <Box sx={{ p: 3 }}>
         <Typography variant="h3" sx={{ mb: 2 }}>
           About

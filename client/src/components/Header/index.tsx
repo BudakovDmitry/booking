@@ -6,7 +6,7 @@ type HeaderProps = {
   children: JSX.Element;
 };
 
-const Header = ({ children }: HeaderProps) => (
+const Header = ({ children }: HeaderProps): JSX.Element => (
   <Styled.HeaderContainer>
     <Styled.HeaderLogoContainer>
       <Styled.HeaderLogo src={Logo} alt="logo" />

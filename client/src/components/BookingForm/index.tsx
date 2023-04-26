@@ -14,7 +14,6 @@ import {
 import { useBookingForm } from 'src/components/BookingForm/useBookingForm';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { DestinationType, FormValuesType } from 'src/types';
-import Loader from 'src/components/Loader';
 
 const initialValues = {
   checkIn: dayjs(),
@@ -22,15 +21,12 @@ const initialValues = {
 };
 
 type BookingFormProps = {
+  allDestinations: DestinationType[]
   onSubmitForm: (values: FormValuesType) => Promise<void>;
 };
 
-const BookingForm = ({ onSubmitForm }: BookingFormProps) => {
-  const { validate, allDestinations } = useBookingForm();
-
-  if (!allDestinations || !allDestinations.length) {
-    return <Loader width="50" height="50" />;
-  }
+const BookingForm = ({ onSubmitForm, allDestinations }: BookingFormProps): JSX.Element => {
+  const { validate } = useBookingForm();
 
   return (
     <Form

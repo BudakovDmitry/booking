@@ -4,8 +4,8 @@ import HotelCard from 'src/components/HotelCard';
 import Loader from 'src/components/Loader';
 import { HotelType } from 'src/types';
 
-const HotelsList = () => {
-  const { allHotels } = useHotelsList();
+const HotelsList = (): JSX.Element => {
+  const { allHotels, openHotelDetails } = useHotelsList();
 
   if (!allHotels || !allHotels.length) {
     return <Loader width="200" height="200" />;
@@ -16,10 +16,12 @@ const HotelsList = () => {
       {allHotels.map((hotel: HotelType) => (
         <Grid item xs={2} sm={4} md={4} key={hotel.id}>
           <HotelCard
+            id={hotel.id}
             name={hotel.name}
             address={hotel.address}
             city={hotel.city}
             state={hotel.state}
+            openHotelDetails={openHotelDetails}
           />
         </Grid>
       ))}

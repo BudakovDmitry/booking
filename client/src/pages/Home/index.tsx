@@ -10,9 +10,18 @@ import {
 } from '@mui/material';
 import BookingForm from 'src/components/BookingForm';
 import { useHome } from 'src/pages/Home/useHome';
+import Loader from 'src/components/Loader';
 
 const Home = () => {
-  const { onSubmitForm } = useHome();
+  const { onSubmitForm, allDestinations } = useHome();
+
+  if (!allDestinations || !allDestinations.length) {
+    return (
+      <Box sx={{ height: '100vh' }}>
+        <Loader width="200" height="200" />
+      </Box>
+    );
+  }
 
   return (
     <>
@@ -39,7 +48,7 @@ const Home = () => {
       <Container maxWidth="xl">
         <Box sx={{ p: 3 }}>
           <Box sx={{ mb: 4 }}>
-            <BookingForm onSubmitForm={onSubmitForm} />
+            <BookingForm onSubmitForm={onSubmitForm} allDestinations={allDestinations} />
           </Box>
           <Typography variant="h3" sx={{ mb: 2 }}>
             Travel with

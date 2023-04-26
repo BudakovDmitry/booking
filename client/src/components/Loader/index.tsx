@@ -6,19 +6,17 @@ type LoaderProps = {
   height: string;
 };
 
-function Loader({ width = '200', height = '200' }: LoaderProps) {
-  return (
-    <Styled.LoaderContainer>
-      <Triangle
-        height={height}
-        width={width}
-        color="#eb8a44"
-        ariaLabel="triangle-loading"
-        wrapperStyle={{}}
-        visible
-      />
-    </Styled.LoaderContainer>
-  );
-}
+const Loader = ({ width = '200', height = '200' }: LoaderProps): JSX.Element => (
+  <Styled.LoaderContainer>
+    <Triangle
+      height={height}
+      width={width}
+      color="#eb8a44"
+      ariaLabel="triangle-loading"
+      wrapperStyle={{}}
+      visible
+    />
+  </Styled.LoaderContainer>
+);
 
 export default Loader;
