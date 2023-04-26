@@ -7,16 +7,16 @@ import { CardActionArea } from '@mui/material';
 const HotelImageDefault = require('src/images/hotel-default.jpg');
 
 type HotelCardProps = {
-  id: number
+  id: string
   name: string;
   address: string;
   city: string;
   state: string | null;
-  openHotelDetails: (id: number) => void
+  openHotelDetails: (id: string) => void
 };
 
 const HotelCard = ({
-  id = 0,
+  id = '',
   name = '',
   address = '',
   city = '',

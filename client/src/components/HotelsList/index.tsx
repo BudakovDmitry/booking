@@ -16,7 +16,8 @@ const HotelsList = (): JSX.Element => {
       {allHotels.map((hotel: HotelType) => (
         <Grid item xs={2} sm={4} md={4} key={hotel.id}>
           <HotelCard
-            id={hotel.id}
+            // eslint-disable-next-line no-underscore-dangle
+            id={hotel._id}
             name={hotel.name}
             address={hotel.address}
             city={hotel.city}

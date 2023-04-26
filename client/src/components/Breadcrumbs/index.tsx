@@ -15,7 +15,8 @@ const Breadcrumbs = ({ crumbs = [] }: BreadcrumbsType): JSX.Element => (
 
       return (
         <Link
-          key={el.label}
+          // eslint-disable-next-line react/no-array-index-key
+          key={index}
           underline="hover"
           component={NavLink}
           sx={{

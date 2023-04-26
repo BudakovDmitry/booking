@@ -14,6 +14,7 @@ export type HotelType = {
   hotel_rating: number | null
   phone_number: string | null
   website: string | null
+  _id: string
 };
 
 export type DestinationsStateType = {

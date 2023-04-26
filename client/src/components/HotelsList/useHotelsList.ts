@@ -10,7 +10,7 @@ export const useHotelsList = () => {
 
   const { navigate } = usePage();
 
-  const openHotelDetails = (id: number) => navigate(`${Routes.HOTELS}/${id}`);
+  const openHotelDetails = (id: string) => navigate(`${Routes.HOTELS}/${id}`);
 
   return {
     allHotels,
