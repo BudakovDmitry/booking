@@ -15,7 +15,6 @@ import HotelInfo from 'src/components/HotelInfo';
 
 const HotelDetail = () => {
   const { hotel, isLoading, params } = useHotelDetail();
-  console.log(hotel);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Grid, Box } from '@mui/material';
 import { useHotelsList } from 'src/components/HotelsList/useHotelsList';
 import HotelCard from 'src/components/HotelCard';
 import Loader from 'src/components/Loader';
@@ -9,7 +9,7 @@ const HotelsList = (): JSX.Element => {
   const { hotels, openHotelDetails, succeeded } = useHotelsList();
 
   if (!succeeded) {
-    return <Loader width="200" height="200" />;
+    return <Box sx={{ mt: '100px' }}><Loader width="200" height="200" /></Box>;
   }
 
   if (succeeded && !hotels.length) {

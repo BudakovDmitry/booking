@@ -8,8 +8,6 @@ export const useHotelsList = () => {
     (state: RootStateType) => state.hotelsReducer,
   );
 
-  console.log(hotels);
-
   const { navigate, params } = usePage();
 
   const openHotelDetails = (id: string) => navigate(`${Routes.HOTELS}/${params.destination}/${id}`);
