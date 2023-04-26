@@ -1,13 +1,13 @@
+import { Response, Request } from 'express';
 import HotelService from '../services/HotelService.js';
-import { Response, Request } from 'express'
 
 class HotelController {
   async getAllHotels(req: Request, res: Response) {
     try {
-      let hotels = []
+      let hotels = [];
       if (req.query.destination && req.query.destination.length) {
         hotels = await HotelService.getHotels(req.query.destination);
-      } 
+      }
       if (!req.query.destination) {
         hotels = await HotelService.getAllHotels();
       }

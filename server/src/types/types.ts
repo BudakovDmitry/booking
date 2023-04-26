@@ -8,10 +8,10 @@ export type HotelType = {
   hotel_rating: number | null
   phone_number: string | null
   website: string | null
-}
+};
 
 export type DestinationType = {
   id: number
   value: number
   label: string
-}
+};

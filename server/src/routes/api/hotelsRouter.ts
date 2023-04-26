@@ -1,8 +1,6 @@
 import { Router } from 'express';
 import HotelController from '../../controllers/HotelController.js';
 
-
-
 const hotelRouter: Router = Router();
 
 hotelRouter.get('', HotelController.getAllHotels);

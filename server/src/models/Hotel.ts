@@ -4,15 +4,15 @@ const hotelSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true
+      required: true,
     },
     address: {
       type: String,
-      required: true
+      required: true,
     },
     city: {
       type: String,
-      required: true
+      required: true,
     },
     state: {
       type: String,
@@ -28,9 +28,9 @@ const hotelSchema = new mongoose.Schema(
     },
     website: {
       type: String,
-    }
+    },
   },
-  { versionKey: false }
+  { versionKey: false },
 );
 
 const Hotel = mongoose.model('Hotel', hotelSchema);

@@ -1,5 +1,5 @@
+import { Response, Request } from 'express';
 import DestinationsService from '../services/DestinationsService.js';
-import { Response, Request } from 'express'
 
 class DestinationsController {
   async getAllDestinations(req: Request, res: Response) {

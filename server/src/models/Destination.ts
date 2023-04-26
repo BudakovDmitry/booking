@@ -8,14 +8,14 @@ const destinationSchema = new mongoose.Schema(
     },
     value: {
       type: Number,
-      required: true
+      required: true,
     },
     label: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
-  { versionKey: false }
+  { versionKey: false },
 );
 
 const Destination = mongoose.model('Destination', destinationSchema);
