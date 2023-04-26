@@ -20,7 +20,7 @@ type HotelInfoProps = {
 
 const HotelInfo = ({
   name = '',
-  rating = 0,
+  rating = null,
   city = '',
   phoneNumber = '',
   address = '',
@@ -37,7 +37,7 @@ const HotelInfo = ({
         sx={{ mb: '20px' }}
       >
         <Styled.HotelName>{name}</Styled.HotelName>
-        {rating && <Rating name="read-only" value={rating} readOnly />}
+        <Rating name="read-only" value={rating} readOnly />
       </Stack>
       <Box sx={{
         display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center',

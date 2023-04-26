@@ -6,6 +6,11 @@ class HotelService {
     return hotels;
   }
 
+  async getHotels(destination: any) {
+    const hotels = await Hotel.aggregate([{ $match: { city: destination } }]);
+    return hotels;
+  }
+
   async getHotel(id: string) {
     if (!id) {
       throw new Error('Id is not found');

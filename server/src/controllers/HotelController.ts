@@ -4,7 +4,13 @@ import { Response, Request } from 'express'
 class HotelController {
   async getAllHotels(req: Request, res: Response) {
     try {
-      const hotels = await HotelService.getAllHotels();
+      let hotels = []
+      if (req.query.destination && req.query.destination.length) {
+        hotels = await HotelService.getHotels(req.query.destination);
+      } 
+      if (!req.query.destination) {
+        hotels = await HotelService.getAllHotels();
+      }
       return res.json(hotels);
     } catch (error) {
       res.status(500).json(error);

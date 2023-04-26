@@ -3,7 +3,7 @@ import { usePage } from 'src/hooks/usePage';
 import { setHotels } from 'src/redux/actions/hotelsActions';
 
 export const useHotels = () => {
-  const { dispatch } = usePage();
+  const { dispatch, params } = usePage();
 
   const clearHotels = (): void => {
     dispatch(setHotels([] as HotelType[]));
@@ -11,5 +11,6 @@ export const useHotels = () => {
 
   return {
     clearHotels,
+    params,
   };
 };

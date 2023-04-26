@@ -14,7 +14,7 @@ import Loader from 'src/components/Loader';
 import HotelInfo from 'src/components/HotelInfo';
 
 const HotelDetail = () => {
-  const { hotel, isLoading } = useHotelDetail();
+  const { hotel, isLoading, params } = useHotelDetail();
   console.log(hotel);
 
   return (
@@ -46,13 +46,13 @@ const HotelDetail = () => {
               crumbs={[
                 { label: CrumbName.HOME, path: Routes.HOME },
                 {
-                  label: CrumbName.HOTELS,
-                  path: Routes.HOTELS,
+                  label: `${CrumbName.HOTELS} in ${params.destination}`,
+                  path: `${Routes.HOTELS}/${params.destination}`,
                 },
                 {
                   label: hotel.name,
                   // eslint-disable-next-line no-underscore-dangle
-                  path: `${Routes.HOTELS}/${hotel._id}`,
+                  path: `${Routes.HOTELS}/${params.destination}/${hotel._id}`,
                 },
               ]}
             />

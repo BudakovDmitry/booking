@@ -13,7 +13,7 @@ import Breadcrumbs from 'src/components/Breadcrumbs';
 import { CrumbName } from 'src/types';
 
 const Hotels = () => {
-  const { clearHotels } = useHotels();
+  const { clearHotels, params } = useHotels();
 
   return (
     <>
@@ -44,8 +44,8 @@ const Hotels = () => {
           crumbs={[
             { label: CrumbName.HOME, path: Routes.HOME },
             {
-              label: CrumbName.HOTELS,
-              path: Routes.HOTELS,
+              label: `${CrumbName.HOTELS} in ${params.destination}`,
+              path: `${Routes.HOTELS}/${params.destination}`,
             },
           ]}
         />

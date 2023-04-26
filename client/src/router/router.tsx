@@ -17,11 +17,11 @@ export const router = createHashRouter([
     element: <About />,
   },
   {
-    path: Routes.HOTELS,
+    path: `${Routes.HOTELS}/:destination`,
     element: <Hotels />,
   },
   {
-    path: `${Routes.HOTELS}/:id`,
+    path: `${Routes.HOTELS}/:destination/:id`,
     element: <HotelDetail />,
   },
 ]);

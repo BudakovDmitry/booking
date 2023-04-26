@@ -19,5 +19,6 @@ export const useHotelDetail = () => {
   return {
     hotel,
     isLoading,
+    params,
   };
 };

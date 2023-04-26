@@ -8,9 +8,9 @@ export const useHotelsList = () => {
     (state: RootStateType) => state.hotelsReducer.hotels,
   );
 
-  const { navigate } = usePage();
+  const { navigate, params } = usePage();
 
-  const openHotelDetails = (id: string) => navigate(`${Routes.HOTELS}/${id}`);
+  const openHotelDetails = (id: string) => navigate(`${Routes.HOTELS}/${params.destination}/${id}`);
 
   return {
     allHotels,

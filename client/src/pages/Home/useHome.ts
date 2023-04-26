@@ -8,7 +8,7 @@ import {
 } from 'src/types';
 import { getHotelsRequested } from 'src/redux/actions/hotelsActions';
 import { Routes } from 'src/router/routes';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getDestinationsRequested } from 'src/redux/actions/destinationsActions';
 
 export const useHome = () => {
@@ -19,9 +19,11 @@ export const useHome = () => {
   const allDestinations: DestinationType[] = useSelector<RootStateType, DestinationType[]>(
     (state: RootStateType) => state.destinationsReducer.destinations,
   );
+  const [selectDestination, setSelectDestination] = useState<string>('');
 
   const onSubmitForm = async (values: FormValuesType): Promise<void> => {
     dispatch(getHotelsRequested(values.destination));
+    setSelectDestination(values.destination);
   };
 
   useEffect(() => {
@@ -30,7 +32,7 @@ export const useHome = () => {
 
   useEffect(() => {
     if (hotels && hotels.length) {
-      navigate(`${Routes.HOTELS}`);
+      navigate(`${Routes.HOTELS}/${selectDestination}`);
     }
   }, [hotels]);
 
