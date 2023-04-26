@@ -13,7 +13,7 @@ import { getDestinationsRequested } from 'src/redux/actions/destinationsActions'
 
 export const useHome = () => {
   const { dispatch, navigate } = usePage();
-  const { hotels, pending, error } = useSelector<RootStateType, HotelsStateType>(
+  const { succeeded } = useSelector<RootStateType, HotelsStateType>(
     (state: RootStateType) => state.hotelsReducer,
   );
   const allDestinations: DestinationType[] = useSelector<RootStateType, DestinationType[]>(
@@ -31,16 +31,13 @@ export const useHome = () => {
   }, []);
 
   useEffect(() => {
-    if (hotels && hotels.length) {
+    if (succeeded) {
       navigate(`${Routes.HOTELS}/${selectDestination}`);
     }
-  }, [hotels]);
+  }, [succeeded]);
 
   return {
     onSubmitForm,
-    hotels,
-    pending,
-    error,
     allDestinations,
   };
 };

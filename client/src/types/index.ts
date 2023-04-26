@@ -27,6 +27,7 @@ export type HotelsStateType = {
   hotels: HotelType[]
   pending: boolean
   error: string | null
+  succeeded: boolean
 };
 
 export type RootStateType = {

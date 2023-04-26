@@ -4,6 +4,7 @@ const initialState: HotelsStateType = {
   hotels: [],
   pending: false,
   error: null,
+  succeeded: false,
 };
 
 const hotelsReducer = (state: HotelsStateType = initialState, action: HotelsAction) => {
@@ -12,6 +13,7 @@ const hotelsReducer = (state: HotelsStateType = initialState, action: HotelsActi
       return {
         ...state,
         pending: true,
+        succeeded: false,
       };
     case HotelsActionsType.HOTELS_FETCH_SUCCEEDED:
       return {
@@ -19,6 +21,7 @@ const hotelsReducer = (state: HotelsStateType = initialState, action: HotelsActi
         pending: false,
         hotels: action.payload,
         error: null,
+        succeeded: true,
       };
     case HotelsActionsType.HOTELS_FETCH_FAILED:
       return {
@@ -30,6 +33,7 @@ const hotelsReducer = (state: HotelsStateType = initialState, action: HotelsActi
       return {
         ...state,
         hotels: action.payload,
+        succeeded: false,
       };
     default:
       return state;

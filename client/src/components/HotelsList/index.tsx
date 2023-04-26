@@ -3,17 +3,22 @@ import { useHotelsList } from 'src/components/HotelsList/useHotelsList';
 import HotelCard from 'src/components/HotelCard';
 import Loader from 'src/components/Loader';
 import { HotelType } from 'src/types';
+import HotelsEmpty from 'src/components/HotelsEmpty';
 
 const HotelsList = (): JSX.Element => {
-  const { allHotels, openHotelDetails } = useHotelsList();
+  const { hotels, openHotelDetails, succeeded } = useHotelsList();
 
-  if (!allHotels || !allHotels.length) {
+  if (!succeeded) {
     return <Loader width="200" height="200" />;
+  }
+
+  if (succeeded && !hotels.length) {
+    return <HotelsEmpty />;
   }
 
   return (
     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} direction="row">
-      {allHotels.map((hotel: HotelType) => (
+      {hotels.map((hotel: HotelType) => (
         <Grid item xs={2} sm={4} md={4} key={hotel.id}>
           <HotelCard
             // eslint-disable-next-line no-underscore-dangle
