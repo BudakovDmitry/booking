@@ -2,7 +2,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { CardActionArea, Stack } from '@mui/material';
 
 const HotelImageDefault = require('src/images/hotel-default.jpg');
 
@@ -31,22 +31,34 @@ const HotelCard = ({
           {name}
         </Typography>
         {address && (
-          <Typography variant="body2" color="text.secondary">
-            address:
-            {address}
-          </Typography>
+          <Stack spacing={1} direction="row">
+            <Typography variant="body2" color="#000000">
+              Address:
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {address}
+            </Typography>
+          </Stack>
         )}
         {city && (
+        <Stack spacing={1} direction="row">
+          <Typography variant="body2" color="#000000">
+            City:
+          </Typography>
           <Typography variant="body2" color="text.secondary">
-            city:
             {city}
           </Typography>
+        </Stack>
         )}
         {state && (
+        <Stack spacing={1} direction="row">
+          <Typography variant="body2" color="#000000">
+            State:
+          </Typography>
           <Typography variant="body2" color="text.secondary">
-            state:
             {state}
           </Typography>
+        </Stack>
         )}
       </CardContent>
     </CardActionArea>
