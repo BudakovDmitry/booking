@@ -14,7 +14,9 @@ import Loader from 'src/components/Loader';
 import HotelInfo from 'src/components/HotelInfo';
 
 const HotelDetail = () => {
-  const { hotel, isLoading, params } = useHotelDetail();
+  const {
+    hotel, isLoading, params, clearHotels,
+  } = useHotelDetail();
 
   return (
     <>
@@ -25,6 +27,7 @@ const HotelDetail = () => {
             variant="contained"
             color="warning"
             to={Routes.HOME}
+            onClick={clearHotels}
           >
             Home
           </Button>
@@ -33,6 +36,7 @@ const HotelDetail = () => {
             variant="contained"
             color="warning"
             to={Routes.ABOUT}
+            onClick={clearHotels}
           >
             About
           </Button>
