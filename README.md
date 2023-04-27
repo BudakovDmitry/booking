@@ -22,7 +22,7 @@ http://localhost:5000/api-docs/
 
 ## Tech Stack
 
-**Client:** React, TypeScript, Redux, Redux-Saga, Axios, ENV, ESLint, Webpack, React-final-form, MUI, Styled-components
+**Client:** React, TypeScript, Redux, Redux-Saga, React-router, Axios, ENV, ESLint, Webpack, React-final-form, MUI, Styled-components
 
 **Server:** NodeJS, Express, TypeScript, Mongoose, MongoDB, Swagger
 
