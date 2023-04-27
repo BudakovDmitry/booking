@@ -5,7 +5,7 @@ import { HotelType } from 'src/types';
 import { useState, useEffect } from 'react';
 import { setHotels } from 'src/redux/actions/hotelsActions';
 
-export const useHotelDetail = () => {
+export const useHotelDetails = () => {
   const { dispatch, params } = usePage();
   const [hotel, setHotel] = useState<HotelType>({} as HotelType);
   const [isLoading, setIsLoading] = useState<boolean>(true);

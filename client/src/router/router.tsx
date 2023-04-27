@@ -4,7 +4,7 @@ import Error from 'src/pages/Error';
 import Home from 'src/pages/Home';
 import About from 'src/pages/About';
 import Hotels from 'src/pages/Hotels';
-import HotelDetail from 'src/pages/HotelDetail';
+import HotelDetails from 'src/pages/HotelDetails';
 
 export const router = createHashRouter([
   {
@@ -22,6 +22,6 @@ export const router = createHashRouter([
   },
   {
     path: `${Routes.HOTELS}/:destination/:id`,
-    element: <HotelDetail />,
+    element: <HotelDetails />,
   },
 ]);

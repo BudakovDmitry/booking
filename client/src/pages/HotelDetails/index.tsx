@@ -9,14 +9,14 @@ import {
 } from '@mui/material';
 import Breadcrumbs from 'src/components/Breadcrumbs';
 import { CrumbName } from 'src/types';
-import { useHotelDetail } from 'src/pages/HotelDetail/useHotelDetail';
+import { useHotelDetails } from 'src/pages/HotelDetails/useHotelDetails';
 import Loader from 'src/components/Loader';
 import HotelInfo from 'src/components/HotelInfo';
 
-const HotelDetail = () => {
+const HotelDetails = () => {
   const {
     hotel, isLoading, params, clearHotels,
-  } = useHotelDetail();
+  } = useHotelDetails();
 
   return (
     <>
@@ -42,7 +42,11 @@ const HotelDetail = () => {
           </Button>
         </Stack>
       </Header>
-      {isLoading ? <Loader width="200" height="200" /> : (
+      {isLoading ? (
+        <Box sx={{ mt: '100px' }}>
+          <Loader width="200" height="200" />
+        </Box>
+      ) : (
         <Box>
           <Container maxWidth="xl">
             <Breadcrumbs
@@ -75,4 +79,4 @@ const HotelDetail = () => {
   );
 };
 
-export default HotelDetail;
+export default HotelDetails;
